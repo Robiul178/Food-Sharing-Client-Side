@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CollectionCard from "./CollectionCard/CollectionCard";
+import Category from "../Category/Category";
 
 
 const Collectons = () => {
@@ -23,17 +24,22 @@ const Collectons = () => {
 
     return (
         <div className="max-w-6xl mx-auto ">
-            <div className="text-center pt-20">
-                <h2 className="text-red-800  text-xl">Special Offer</h2>
-                <h2 className="text-4xl font-bold pb-4 font-serif">Food List</h2>
+            <div>
+                <Category />
             </div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6">
-                {
-                    sortProducts?.map(product => <CollectionCard
-                        key={product.id}
-                        product={product}
-                    ></CollectionCard>)
-                }
+            <div className="py-12">
+                <div className="text-center py-6">
+                    <h2 className="text-red-800  text-xl">Special Offer</h2>
+                    <h2 className="text-4xl font-bold pb-4 font-serif">Food List</h2>
+                </div>
+                <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6">
+                    {
+                        sortProducts?.map(product => <CollectionCard
+                            key={product.id}
+                            product={product}
+                        ></CollectionCard>)
+                    }
+                </div>
             </div>
         </div>
     );
