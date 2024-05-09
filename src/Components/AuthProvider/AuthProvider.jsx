@@ -7,6 +7,7 @@ import auth from '../firebase/firebase.config'
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true)
 
 
     const registerUser = (email, password) => {
@@ -24,6 +25,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('currentUser', currentUser)
             setUser(currentUser)
+            setLoading(false)
         });
         return () => {
             unSubscribe()
@@ -35,7 +37,8 @@ const AuthProvider = ({ children }) => {
         user,
         registerUser,
         loginUser,
-        logOut
+        logOut,
+        loading
     }
     return (
         <AuthContext.Provider value={authInfo}>

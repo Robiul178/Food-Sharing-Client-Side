@@ -7,10 +7,14 @@ import {
 import "./index.css";
 import Routes from './Routes/Routes.jsx';
 import Home from './Components/Pages/Home/Home/Home.jsx';
-import Shop from './Components/Pages/Shop/Shop.jsx';
 import Login from './Components/Pages/Login/Login.jsx';
 import Registration from './Components/Pages/Registration/Registration.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
+import AvailableFoods from './Components/Pages/AvailableFoods/AvailableFoods.jsx';
+import AddFood from './Components/Pages/AddFood/AddFood.jsx';
+import ManageMyFoods from './Components/Pages/ManageMyFoods/ManageMyFoods.jsx';
+import MyFoodRequest from './Components/Pages/MyFoodRequest/MyFoodRequest.jsx';
+import PrivateRoute from './Components/Private/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +26,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/shop",
-        element: <Shop />
+        path: "/avaliableFood",
+        element: <AvailableFoods />
       },
       {
         path: "/login",
@@ -32,6 +36,22 @@ const router = createBrowserRouter([
       {
         path: "/registrstion",
         element: <Registration />
+      },
+      {
+        path: '/addFood',
+        element: <PrivateRoute>
+          <AddFood />
+        </PrivateRoute>
+      },
+      {
+        path: '/manageMyfood',
+        element: <PrivateRoute>
+          <ManageMyFoods />
+        </PrivateRoute>
+      },
+      {
+        path: "/myFoodRequest",
+        element: <MyFoodRequest />
       }
     ]
   },
