@@ -1,7 +1,6 @@
 import PageBanner from '../Shared/PageBanner/PageBanner';
 import useAuth from '../../../Hook/useAuth'
 // import axios from 'axios';
-import { useEffect } from 'react';
 import swal from 'sweetalert';
 
 const AddFood = () => {
@@ -64,7 +63,9 @@ const AddFood = () => {
         <div>
             <PageBanner></PageBanner>
             <div>
+
                 <section className="p-6  dark:text-white">
+
                     <form
                         onSubmit={handleAddFood}
                         className="container flex flex-col mx-auto space-y-12">
@@ -91,7 +92,7 @@ const AddFood = () => {
 
                                 <div className="col-span-full sm:col-span-3">
                                     <label htmlFor="FoodQuantity" className="text-sm">Food Quantity</label>
-                                    <input id="FoodQuantity" type="text" name="FoodQuantity" placeholder="Food Quantity" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="FoodQuantity" type="number" name="FoodQuantity" placeholder="Food Quantity" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
                                 </div>
                                 <div className="col-span-full sm:col-span-3">
                                     <label htmlFor="location" className="text-sm">Pickup Location</label>
