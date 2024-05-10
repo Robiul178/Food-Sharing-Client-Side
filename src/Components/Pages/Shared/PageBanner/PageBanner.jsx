@@ -5,7 +5,7 @@ const PageBanner = () => {
         <div>
             <div
                 style={{
-                    backgroundImage: `url('https://shtheme.org/demosd/winta/wp-content/uploads/2021/07/4.jpg')`,
+                    backgroundImage: `url('https://foodmood.wgl-demo.net/wp-content/uploads/2019/09/pagetitle-2.png')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '200px'

@@ -2,6 +2,7 @@
 import useAuth from "../../../Hook/useAuth";
 
 import { useParams } from "react-router-dom";
+import PageBanner from "../Shared/PageBanner/PageBanner";
 
 const ViewDetails = () => {
     const { food } = useAuth();
@@ -10,13 +11,30 @@ const ViewDetails = () => {
     // console.log('int id ', id, typeof (id))
     const filterFood = food.find(f => f._id === id)
     // const filterFood = food?.find(f => f._id === intId);
-    console.log(filterFood)
+
+    const { food_name, food_quantity, food_image, pickup_location, expired_datetime, additional_notes } = filterFood;
 
 
     return (
-        <div>
-            <h2>ViewDetails:{food?.length} </h2>
-        </div>
+        <section>
+            <div>
+                <PageBanner />
+            </div>
+            <div className="bg-white py-10">
+                <section className="max-w-6xl mx-auto md:flex justify-between">
+                    <div>
+                        <img src={food_image} className="w-full h-[400px]" />
+                    </div>
+                    <div className="text-gray-800">
+                        <h2 className="text-4xl font-bold mb-2">{food_name}</h2>
+                        <h2 className="text-xl mb-2">Quantity : {food_quantity}</h2>
+                        <h2 className="text-xl mb-2">Pickup location : {pickup_location}</h2>
+                        <h2 className="text-xl mb-2">Expired datetime : {expired_datetime}</h2>
+                        <p className="text-lg">{additional_notes}</p>
+                    </div>
+                </section>
+            </div>
+        </section>
     );
 };
 

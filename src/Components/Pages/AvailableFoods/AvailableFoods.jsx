@@ -1,9 +1,12 @@
-// import React from 'react';
+import PageBanner from '../Shared/PageBanner/PageBanner'
 
 const AvailableFoods = () => {
     return (
         <div>
-            <h2>AvailableFoods</h2>
+            <PageBanner></PageBanner>
+            <div>
+                <h2>AvailableFoods</h2>
+            </div>
         </div>
     );
 };
