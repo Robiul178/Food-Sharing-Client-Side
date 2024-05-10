@@ -43,7 +43,7 @@ const Navbar = () => {
                                     <div className="tooltip tooltip-left mr-4" data-tip={user?.email}>
                                         <div className="avatar relative top-5">
                                             <div className="w-12 rounded-full">
-                                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                                <img src={user.photoURL} />
                                             </div>
                                         </div>
                                     </div>

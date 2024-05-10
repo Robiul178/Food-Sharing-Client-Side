@@ -23,17 +23,20 @@ const AddFood = () => {
         const Anote = form.get('note');
 
         const addFoodInfo = {
-            foodName: Foodname,
-            foodQuantity: FoodQuantity,
-            pickup: PickupLocation,
-            expireDate: expireDate,
-            foodImage: foodImage,
-            adiitionalNote: Anote,
-            userNAme: displayName,
-            userEmail: email,
-            userPhoto: photoURL,
+            food_name: Foodname,
+            food_quantity: FoodQuantity,
+            pickup_location: PickupLocation,
+            expired_datetime: expireDate,
+            food_image: foodImage,
+            additional_notes: Anote,
+            donator: {
+                name: displayName,
+                email: email,
+                photo: photoURL
+            },
             status: "available"
         }
+        // console.log(addFoodInfo)
 
         // axios.post("http://localhost:1000/foods", addFoodInfo, { withCredentials: true })
         //     .then(res => {
@@ -105,7 +108,7 @@ const AddFood = () => {
                                 </div>
                                 <div className="col-span-full">
                                     <label htmlFor="FoodImage" className="text-sm">Food Image</label>
-                                    <input id="FoodImage" type="text" name="foodImage" placeholder="FoodImage url" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="FoodImage" type="url" name="foodImage" placeholder="FoodImage url" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
                                 </div>
                                 <div className="col-span-full">
                                     <label htmlFor="note" className="text-sm">Additional Notes</label>
