@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from '../firebase/firebase.config'
 // import { useQueries } from "@tanstack/react-query";
@@ -13,12 +13,16 @@ const AuthProvider = ({ children }) => {
     const [food, setFood] = useState();
 
 
+    const provider = new GoogleAuthProvider();
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     };
     const loginUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
+    }
+    const googleSignUp = () => {
+        return signInWithPopup(auth, provider);
     }
     const logOut = () => {
         return signOut(auth)
@@ -62,6 +66,7 @@ const AuthProvider = ({ children }) => {
         registerUser,
         loginUser,
         logOut,
+        googleSignUp,
         loading
     }
     return (

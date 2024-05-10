@@ -25,7 +25,7 @@ const CollectionCard = ({ product }) => {
                         <Link
                             to={`/foods/${_id}`}
                         >
-                            <button className="border p-4 hover:bg-white hover:text-black">View Properties</button></Link>
+                            <button className="border p-4 hover:bg-white hover:text-black"><GrLinkNext /></button></Link>
 
                         {/* <Link to={`/foods/${_id}`}>
                             <button className="btn btn-link btn-xl"><GrLinkNext /></button>
