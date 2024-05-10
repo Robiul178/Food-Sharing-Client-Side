@@ -2,7 +2,7 @@
 const About = () => {
     return (
         <div>
-            <section className="bg-white dark:text-gray-700">
+            <section className=" dark:text-gray-700">
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                     <div className="grid grid-cols-2 gap-4 ">
                         <div className="bg-blue-400  col-span-2 ">

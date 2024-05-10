@@ -1,26 +1,14 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 import CollectionCard from "./CollectionCard/CollectionCard";
 import Category from "../Category/Category";
+import { Link } from "react-router-dom";
+import useAuth from "../../../../Hook/useAuth"
 
 
 const Collectons = () => {
-    const [products, setProducts] = useState();
 
-    const sortProducts = products?.slice(0, 6)
-
-    // axios.get('/foods.json')
-    //     .then(response => {
-    //         setProducts(response.data)
-    //     })
-
-    useEffect(() => {
-        fetch('/foods.json')
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data)
-            })
-    }, [])
+    const { food } = useAuth()
+    const sortProducts = food?.slice(0, 6)
 
     return (
         <div className="max-w-6xl mx-auto ">
@@ -35,10 +23,13 @@ const Collectons = () => {
                 <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6">
                     {
                         sortProducts?.map(product => <CollectionCard
-                            key={product.id}
+                            key={product._id}
                             product={product}
                         ></CollectionCard>)
                     }
+                </div>
+                <div className="py-10">
+                    <Link to="/avaliableFood"><button className="btn btn-outline">See All</button></Link>
                 </div>
             </div>
         </div>

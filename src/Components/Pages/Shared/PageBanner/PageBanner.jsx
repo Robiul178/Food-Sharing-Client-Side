@@ -12,7 +12,6 @@ const PageBanner = () => {
                 }}
                 className="pt-4"
             >
-                <h2>Page BAnner</h2>
             </div>
         </div>
     );

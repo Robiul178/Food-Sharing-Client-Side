@@ -15,6 +15,14 @@ import AddFood from './Components/Pages/AddFood/AddFood.jsx';
 import ManageMyFoods from './Components/Pages/ManageMyFoods/ManageMyFoods.jsx';
 import MyFoodRequest from './Components/Pages/MyFoodRequest/MyFoodRequest.jsx';
 import PrivateRoute from './Components/Private/PrivateRoute.jsx';
+import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
+
+// import {
+//   QueryClient,
+//   QueryClientProvider,
+// } from '@tanstack/react-query'
+
+
 
 const router = createBrowserRouter([
   {
@@ -52,17 +60,28 @@ const router = createBrowserRouter([
       {
         path: "/myFoodRequest",
         element: <MyFoodRequest />
+      },
+      {
+        path: '/foods/:id',
+        element: <ViewDetails />,
+        // loader: () => fetch(`http://localhost:1000/foods/${_id}`)
       }
     ]
   },
 ]);
 
+// const queryClient = new QueryClient()
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className=' overflow-x-hidden'>
+      {/* <QueryClientProvider client={queryClient}> */}
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
+      {/* </QueryClientProvider> */}
+
     </div>
   </React.StrictMode>,
 )

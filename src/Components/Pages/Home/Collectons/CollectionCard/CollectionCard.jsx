@@ -1,10 +1,11 @@
 
 import { GrLinkNext } from "react-icons/gr";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const CollectionCard = ({ product }) => {
 
-    const { food_name, food_quantity, food_image, pickup_location } = product;
+    const { _id, food_name, food_quantity, food_image, pickup_location } = product;
 
     return (
         <div>
@@ -21,7 +22,14 @@ const CollectionCard = ({ product }) => {
                         </h2>
                     </span>
                     <span className="relative left-[280px]">
-                        <button className="btn btn-link btn-xl"><GrLinkNext /></button>
+                        <Link
+                            to={`/foods/${_id}`}
+                        >
+                            <button className="border p-4 hover:bg-white hover:text-black">View Properties</button></Link>
+
+                        {/* <Link to={`/foods/${_id}`}>
+                            <button className="btn btn-link btn-xl"><GrLinkNext /></button>
+                        </Link> */}
                     </span>
                 </div>
             </div>
