@@ -31,11 +31,11 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         axios.get('http://localhost:1000/foods')
-            // .then(res => res.json())
             .then(data => {
                 console.log("from data", data.data)
                 setFood(data.data)
             })
+
     }, [])
 
     // const { data } = useQueries({

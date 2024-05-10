@@ -38,8 +38,8 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero min-h-screen bg-base-200 ">
+            <div className="hero-content flex-col lg:flex-row-reverse sm:pt-14">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi <br /> exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
@@ -49,7 +49,7 @@ const Login = () => {
                         <div className="flex flex-col w-full border-opacity-50">
                             <div className="grid  card rounded-box place-items-center pt-4">
                                 <h2 className="text-xl py-2">Sing Up Free</h2>
-                                <h2><Link to="/registrstion">
+                                <h2 className="py-2"><Link to="/registrstion">
                                     <p className="text-blue-600 underline">Please register here</p>
                                 </Link></h2>
                                 <button onClick={handleGoogleSingUp} className="btn btn-outline w-[82%] border-gray-600 ">Google</button>
