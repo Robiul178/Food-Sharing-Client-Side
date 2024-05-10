@@ -66,9 +66,7 @@ const AddFood = () => {
         <div>
             <PageBanner></PageBanner>
             <div>
-
                 <section className="p-6  dark:text-white">
-
                     <form
                         onSubmit={handleAddFood}
                         className="container flex flex-col mx-auto space-y-12">
