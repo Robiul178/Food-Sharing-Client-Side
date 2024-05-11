@@ -18,6 +18,15 @@ const AvailableFoods = () => {
             })
     }, [])
 
+    const sortByExpireDate = () => {
+        const sortedFoods = [...availableFood].sort((a, b) => {
+            return new Date(a.expired_datetime) - new Date(b.expired_datetime);
+            // console.log(a.expired_datetime, b.expired_datetime)
+        });
+        // console.log("sorted food", sortedFoods)
+        setAvailableFood(sortedFoods);
+    };
+
 
     if (loading) return <span className="loading loading-bars loading-lg mt-24 ms-44"></span>
 
@@ -25,6 +34,10 @@ const AvailableFoods = () => {
         <div className="max-w-6xl mx-auto ">
             <PageBanner>
             </PageBanner>
+
+            <div className='py-4'>
+                <button className='btn btn-outline' onClick={sortByExpireDate}>Sort by Expire Date</button>
+            </div>
             <div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
                     {

@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [isTwoColumnLayout, setIsTwoColumnLayout] = useState(false);
+  const [foods, setFoods] = useState([
+    { id: 1, name: 'Food 1', expireDate: '2024-05-15' },
+    { id: 2, name: 'Food 2', expireDate: '2024-05-12' },
+    { id: 3, name: 'Food 3', expireDate: '2024-04-20' },
+    { id: 4, name: 'Food 4', expireDate: '2024-05-9' },
+    { id: 5, name: 'Food 5', expireDate: '2024-05-11' },
+    // Add more food items as needed
+  ]);
+
+  const toggleLayout = () => {
+    setIsTwoColumnLayout(!isTwoColumnLayout);
+  };
+
+  const sortByExpireDate = () => {
+    const sortedFoods = [...foods].sort((a, b) => {
+      return new Date(a.expireDate) - new Date(b.expireDate);
+    });
+    setFoods(sortedFoods);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='p-44'>
+      <h1>Available Foods</h1>
+      {/* <button onClick={toggleLayout}>Change Layout</button> */}
+      <button className='btn btn-outline' onClick={sortByExpireDate}>Sort by Expire Date</button>
+      <div className={isTwoColumnLayout ? 'two-column' : 'three-column'} >
+        {foods.map(food => (
+          <div key={food.id} className="food-item border">
+            <div>Name: {food.name}</div>
+            <div>Expire Date: {food.expireDate}</div>
+          </div>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
