@@ -4,9 +4,7 @@ import useAuth from '../../../Hook/useAuth'
 import swal from 'sweetalert';
 
 const AddFood = () => {
-
     const { user } = useAuth()
-    console.log(user)
     const { displayName, email, photoURL } = user;
 
 
@@ -36,12 +34,6 @@ const AddFood = () => {
             },
             status: "available"
         }
-        // console.log(addFoodInfo)
-
-        // axios.post("http://localhost:1000/foods", addFoodInfo, { withCredentials: true })
-        //     .then(res => {
-        //         console.log("from axios", res.data)
-        //     })
 
         fetch('http://localhost:1000/foods', {
             method: 'POST',

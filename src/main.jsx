@@ -16,7 +16,7 @@ import ManageMyFoods from './Components/Pages/ManageMyFoods/ManageMyFoods.jsx';
 import MyFoodRequest from './Components/Pages/MyFoodRequest/MyFoodRequest.jsx';
 import PrivateRoute from './Components/Private/PrivateRoute.jsx';
 import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
-import App from './App.jsx';
+// import App from './App.jsx';
 
 // import {
 //   QueryClient,
@@ -67,10 +67,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ViewDetails />
         </PrivateRoute>
-      },
-      {
-        path: '/app',
-        element: <App />
       }
     ]
   },

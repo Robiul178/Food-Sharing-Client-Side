@@ -1,42 +1,70 @@
-import { useState } from 'react';
+<div className="max-w-xl mx-auto">
+  <form
+    onSubmit={handleSubmit}
+    className=" flex w-full flex-col bg-black">
+    <fieldset className="p-6 rounded-md shadow-sm ">
+      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="Foodname" className="text-sm">FoodName</label>
+          <input id="Foodname" type="text" name="Foodname" placeholder={food_name} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
 
-const App = () => {
-  const [isTwoColumnLayout, setIsTwoColumnLayout] = useState(false);
-  const [foods, setFoods] = useState([
-    { id: 1, name: 'Food 1', expireDate: '2024-05-15' },
-    { id: 2, name: 'Food 2', expireDate: '2024-05-12' },
-    { id: 3, name: 'Food 3', expireDate: '2024-04-20' },
-    { id: 4, name: 'Food 4', expireDate: '2024-05-9' },
-    { id: 5, name: 'Food 5', expireDate: '2024-05-11' },
-    // Add more food items as needed
-  ]);
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="FoodQuantity" className="text-sm">Food Id</label>
+          <input id="FoodQuantity" type="text" name="FoodQuantity" placeholder={_id} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+        <div className="col-span-full">
+          <label htmlFor="FoodImage" className="text-sm">Food Image</label>
+          <input id="FoodImage" type="url" name="foodImage" placeholder={food_image} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="location" className="text-sm"> Food Donator Name</label>
+          <input id="location" type="text" name="PickupLocation" placeholder={donator?.name} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="Edate" className="text-sm"> Food Donator Email</label>
+          <input id="Edate" type="email" name="expireDate" placeholder={donator?.email} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
 
-  const toggleLayout = () => {
-    setIsTwoColumnLayout(!isTwoColumnLayout);
-  };
 
-  const sortByExpireDate = () => {
-    const sortedFoods = [...foods].sort((a, b) => {
-      return new Date(a.expireDate) - new Date(b.expireDate);
-    });
-    setFoods(sortedFoods);
-  };
+        <div className="col-span-full">
+          <label htmlFor="note" className="text-sm">Additional Notes</label>
+          <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3 checkbox-success  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
 
-  return (
-    <div className='p-44'>
-      <h1>Available Foods</h1>
-      {/* <button onClick={toggleLayout}>Change Layout</button> */}
-      <button className='btn btn-outline' onClick={sortByExpireDate}>Sort by Expire Date</button>
-      <div className={isTwoColumnLayout ? 'two-column' : 'three-column'} >
-        {foods.map(food => (
-          <div key={food.id} className="food-item border">
-            <div>Name: {food.name}</div>
-            <div>Expire Date: {food.expireDate}</div>
-          </div>
-        ))}
+        <div className="col-span-full">
+          <label htmlFor="status" className="text-sm">Request Date</label>
+          <input id="status" type="date" name="request-time" placeholder="" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="location" className="text-sm">Pickup Location</label>
+          <input id="location" type="text" name="PickupLocation" placeholder={pickup_location} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="Edate" className="text-sm"> Expired Date/Time</label>
+          <input id="Edate" type="text" name="expireDate" placeholder={expired_datetime} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+
+        <div className="col-span-full sm:col-span-3">
+          <label htmlFor="state" className="text-sm">Your Email</label>
+          <input id="state" type="email" placeholder={donator?.email} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+        </div>
+
+        <button className='btn btn-outline w-full'>
+          <input type="submit" />
+        </button>
+
+
+        {/* <div className="btn btn-outline"
+                                            
+                                        >
+                                            <input onClick={handleFoodRequest} type="submit" value="Request" className="bg-slate-300 text-black p-2 px-6" />
+                                        </div> */}
+
       </div>
-    </div>
-  );
-};
+    </fieldset>
+  </form>
 
-export default App;
+</div>
