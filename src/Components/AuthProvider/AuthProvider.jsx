@@ -3,7 +3,6 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from '../firebase/firebase.config'
-// import { useQueries } from "@tanstack/react-query";
 import axios from "axios";
 
 export const AuthContext = createContext();
@@ -37,15 +36,6 @@ const AuthProvider = ({ children }) => {
             })
 
     }, [])
-
-    // const { data } = useQueries({
-    //     queryKey: ['foods'],
-    //     queryFn: async () => {
-    //         const res = await fetch('http://localhost:1000/foods')
-    //         return res.json()
-    //     }
-
-    // })
 
 
     useEffect(() => {

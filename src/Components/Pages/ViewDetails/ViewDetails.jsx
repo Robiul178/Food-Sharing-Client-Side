@@ -24,7 +24,7 @@ const ViewDetails = () => {
         const Anote = form.get('note');
         const requestTime = form.get('request-time');
 
-        const addFoodInfo = {
+        const reqFoodInfo = {
             food_name: food_name,
             food_quantity: food_quantity,
             pickup_location: pickup_location,
@@ -32,12 +32,13 @@ const ViewDetails = () => {
             food_image: food_image,
             additional_notes: Anote,
             donator: {
-                name: user?.displayName,
-                email: user?.email,
-                photo: user?.photoURL
+                name: donator.name,
+                email: donator.email,
+                photo: donator.photo
             },
             status: "available",
-            requestTime: requestTime
+            requestTime: requestTime,
+            user_email: user.email
         }
 
         fetch('http://localhost:1000/request-food', {
@@ -45,7 +46,7 @@ const ViewDetails = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(addFoodInfo)
+            body: JSON.stringify(reqFoodInfo)
         })
             .then(res => res.json())
             .then(data => {
@@ -56,11 +57,8 @@ const ViewDetails = () => {
                         .then(res => res.json())
                         .then(data => {
                             if (data.deletedCount > 0) {
-
                                 const remaining = requestFood.filter(f => f._id !== id);
                                 setrequestFood(remaining);
-
-
                                 swal({
                                     title: "Food add successfully",
                                     text: "You can see this in your My request foods page!",

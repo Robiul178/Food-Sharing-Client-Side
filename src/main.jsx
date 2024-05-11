@@ -18,11 +18,6 @@ import PrivateRoute from './Components/Private/PrivateRoute.jsx';
 import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
 // import App from './App.jsx';
 
-// import {
-//   QueryClient,
-//   QueryClientProvider,
-// } from '@tanstack/react-query'
-
 
 
 const router = createBrowserRouter([
@@ -72,17 +67,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-// const queryClient = new QueryClient()
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className=' overflow-x-hidden'>
-      {/* <QueryClientProvider client={queryClient}> */}
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
-      {/* </QueryClientProvider> */}
 
     </div>
   </React.StrictMode>,
