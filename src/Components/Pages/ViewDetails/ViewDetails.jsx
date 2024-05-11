@@ -1,34 +1,22 @@
 import useAuth from "../../../Hook/useAuth";
 import { useParams } from "react-router-dom";
 import PageBanner from "../Shared/PageBanner/PageBanner";
-import axios from "axios";
 import swal from "sweetalert";
+import { useState } from "react";
 
 const ViewDetails = () => {
     const { food, user } = useAuth();
     const { id } = useParams();
 
-    const filterFood = food?.find(f => f._id === id)
+    const [requestFood, setrequestFood] = useState([...food])
+
+    const filterFood = requestFood?.find(f => f._id === id)
     const { _id, food_name, donator, food_quantity, food_image, pickup_location, expired_datetime } = filterFood;
 
+    console.log("requestFood", requestFood)
+    console.log("filterFood", filterFood)
 
-
-    // const handleRequest = () => {
-
-
-
-
-
-
-    // axios.post(`http://localhost:1000/foods/${_id}`)
-    //     .then(res => {
-    //         console.log("post axios", res.data)
-    //     })
-
-
-
-
-    //handle submit
+    // handle submit
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -68,6 +56,11 @@ const ViewDetails = () => {
                         .then(res => res.json())
                         .then(data => {
                             if (data.deletedCount > 0) {
+
+                                const remaining = requestFood.filter(f => f._id !== id);
+                                setrequestFood(remaining);
+
+
                                 swal({
                                     title: "Food add successfully",
                                     text: "You can see this in your My request foods page!",
