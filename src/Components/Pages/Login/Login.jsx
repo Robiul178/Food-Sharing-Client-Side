@@ -2,10 +2,11 @@
 
 import swal from "sweetalert";
 import useAuth from "../../../Hook/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { loginUser, googleSignUp } = useAuth()
+    const navigate = useNavigate()
 
     const handleFormData = (e) => {
         e.preventDefault();
@@ -21,6 +22,7 @@ const Login = () => {
                     swal("Good job!", "You log in successfully!", "success", {
                         button: "Let's see some product!",
                     });
+                    navigate('/')
                 }
             })
             .catch((error) => {
@@ -33,6 +35,7 @@ const Login = () => {
     const handleGoogleSingUp = () => {
         googleSignUp()
             .then((result) => {
+                navigate('/')
                 console.log(result)
             }).catch(() => { });
     }

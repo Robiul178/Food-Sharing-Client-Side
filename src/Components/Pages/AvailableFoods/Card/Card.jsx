@@ -34,7 +34,7 @@ const Card = ({ food }) => {
                         <div>
                             <div>
                                 <Link
-                                    to={`/viewdetails/${_id}`}
+                                    to={`/foods/${_id}`}
                                 >
                                     <button className="btn btn-outline w-full hover:bg-white hover:text-black">View Details</button>
                                 </Link>

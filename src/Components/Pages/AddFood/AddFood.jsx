@@ -2,10 +2,13 @@ import PageBanner from '../Shared/PageBanner/PageBanner';
 import useAuth from '../../../Hook/useAuth'
 // import axios from 'axios';
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const AddFood = () => {
     const { user } = useAuth()
     const { displayName, email, photoURL } = user;
+    const navigate = useNavigate()
 
 
     const handleAddFood = (e) => {
@@ -35,19 +38,29 @@ const AddFood = () => {
             status: "available"
         }
 
-        fetch('http://localhost:1000/foods', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(addFoodInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    swal('Food Added Successfully')
-                }
-            })
+        // fetch('http://localhost:1000/foods', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(addFoodInfo)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.insertedId) {
+        //             swal('Food Added Successfully')
+        //         }
+        //         navigate('/manageMyfood')
+        //     })
+
+        try {
+            const { foods } = axios.post('http://localhost:1000/foods', addFoodInfo)
+            console.log(foods)
+            swal('add successfuly')
+            navigate('/manageMyfood')
+        } catch (e) {
+            console.log(e)
+        }
 
 
     }
