@@ -16,6 +16,7 @@ import ManageMyFoods from './Components/Pages/ManageMyFoods/ManageMyFoods.jsx';
 import MyFoodRequest from './Components/Pages/MyFoodRequest/MyFoodRequest.jsx';
 import PrivateRoute from './Components/Private/PrivateRoute.jsx';
 import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
+import Update from './Components/Pages/ManageMyFoods/MyFoodCard/Update/Update.jsx';
 // import App from './App.jsx';
 
 
@@ -62,6 +63,16 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ViewDetails />
         </PrivateRoute>
+      },
+      {
+        path: '/update/:id',
+        element: <Update />,
+        loader: ({ params }) => fetch(`http://localhost:1000/foods/${params.id}`)
+      },
+      {
+        path: '/viewdetails/:id',
+        element: <ViewDetails />,
+        loader: ({ params }) => fetch(`http://localhost:1000/foods/${params.id}`)
       }
     ]
   },

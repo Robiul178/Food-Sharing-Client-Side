@@ -5,16 +5,17 @@ import swal from "sweetalert";
 import { useState } from "react";
 
 const ViewDetails = () => {
-    const { food, user } = useAuth();
+    const { food, user, loader } = useAuth();
     const { id } = useParams();
 
-    const [requestFood, setrequestFood] = useState([...food])
+    const [requestFood, setrequestFood] = useState()
 
-    const filterFood = requestFood?.find(f => f._id === id)
+    const filterFood = food?.find(f => f._id === id)
     const { _id, food_name, donator, food_quantity, food_image, pickup_location, expired_datetime } = filterFood;
 
-    console.log("requestFood", requestFood)
-    console.log("filterFood", filterFood)
+    // console.log("requestFood", requestFood)
+    // console.log("filterFood", filterFood)
+
 
     // handle submit
     const handleSubmit = (e) => {
