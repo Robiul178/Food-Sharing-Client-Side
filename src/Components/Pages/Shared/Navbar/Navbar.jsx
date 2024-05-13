@@ -32,7 +32,7 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-4xl text-black">daisyUI</a>
                 </div>
-                <div className="navbar-end w-full text-yellow-300">
+                <div className="navbar-end w-full text-gray-800">
                     <ul className="menu text-xl font-bold menu-horizontal px-1 ">
                         {links}
                     </ul>

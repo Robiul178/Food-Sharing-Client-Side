@@ -17,6 +17,7 @@ import MyFoodRequest from './Components/Pages/MyFoodRequest/MyFoodRequest.jsx';
 import PrivateRoute from './Components/Private/PrivateRoute.jsx';
 import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
 import Update from './Components/Pages/ManageMyFoods/MyFoodCard/Update/Update.jsx';
+import Error from './Components/Error/Error.jsx';
 // import App from './App.jsx';
 
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Routes />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
