@@ -2,8 +2,7 @@
 
 const Modal = ({ data, handleSubmit }) => {
 
-
-    var currentDate = new Date();
+    let currentDate = new Date();
 
     const { _id, food_name, donator, food_image, pickup_location, expired_datetime } = data;
 

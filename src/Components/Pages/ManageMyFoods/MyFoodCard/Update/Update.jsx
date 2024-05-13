@@ -1,10 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import PageBanner from "../../../Shared/PageBanner/PageBanner";
 import useAuth from "../../../../../Hook/useAuth";
+import axios from "axios";
+import swal from "sweetalert";
 
 const Update = () => {
     const data = useLoaderData();
     const { user } = useAuth();
+    const navigate = useNavigate()
+    console.log(data)
 
     const { _id, food_name, donator, food_image, pickup_location, expired_datetime } = data;
 
@@ -38,19 +42,27 @@ const Update = () => {
         }
         // console.log(updateFoodInfo, "update food info")
 
-        fetch(`http://localhost:1000/foods/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updateFoodInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log('update hoyceee', data)
+        // fetch(`http://localhost:1000/foods/${_id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(updateFoodInfo)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log('update hoyceee', data)
 
-            })
+        //     })
 
+        try {
+            const { data } = axios.put(`http://localhost:1000/foods/${_id}`, updateFoodInfo)
+            console.log('update hoyceee', data)
+            swal('update successfuly')
+            navigate('/manageMyfood')
+        } catch (e) {
+            console.log(e)
+        }
 
     };//handledelete end
 

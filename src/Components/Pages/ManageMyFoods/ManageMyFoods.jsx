@@ -4,10 +4,9 @@ import PageBanner from "../Shared/PageBanner/PageBanner";
 import useAuth from '../../../Hook/useAuth'
 import { useEffect, useState } from "react";
 import MyFoodCard from "./MyFoodCard/MyFoodCard";
-// import axios from "axios";
 
 const ManageMyFoods = () => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
     const [myFood, setMyFood] = useState([])
 
 
@@ -23,9 +22,10 @@ const ManageMyFoods = () => {
         //     setMyFood(food)
         // }
         // getFood()
-    }, [user])
+    }, [user?.email])
 
-    console.log(myFood)
+
+    if (loading) return <span className="loading loading-bars loading-lg mt-24 ms-44"></span>
 
 
     return (

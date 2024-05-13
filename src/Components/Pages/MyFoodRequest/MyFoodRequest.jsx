@@ -7,6 +7,7 @@ import Cardd from './Cardd/Cardd';
 
 const MyFoodRequest = () => {
     const [requeatFoods, setRequestFoods] = useState([]);
+    console.log(requeatFoods)
 
     axios.get('http://localhost:1000/request-food')
         .then(res => {

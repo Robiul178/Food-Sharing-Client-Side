@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ food }) => {
 
-    const { _id, food_name, food_quantity, food_image, pickup_location, donator, expired_datetime, additional_notes } = food;
+    const { _id, food_name, food_quantity, food_image, pickup_location, donator, expired_datetime, additional_notes, status } = food;
 
     return (
         <div>
@@ -14,6 +14,7 @@ const Card = ({ food }) => {
                         <img alt="" src={donator?.photo} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
                         <div className="flex flex-col space-y-1">
                             <a rel="noopener noreferrer" href="#" className="text-sm font-semibold">{donator?.name}</a>
+                            <a rel="noopener noreferrer" href="#" className="text-sm font-semibold">{donator?.email}</a>
                         </div>
                     </div>
                     <div>
@@ -22,6 +23,7 @@ const Card = ({ food }) => {
                         <div className="mt-6 mb-2 ">
                             <span className="block text-xs font-medium tracking-widest uppercase ">Foot Quantity : {food_quantity}</span>
                             <h2 className="text-xl  font-semibold tracking-wide ">{food_name}</h2>
+                            <h2 className="text-lg  font-semibold tracking-wide ">Food Status:{status}</h2>
                         </div>
                         <span>
                             <h2 className="block text-xs tracking-widest  uppercase"> <span className="font-bold">Pickup location :</span>
@@ -34,7 +36,7 @@ const Card = ({ food }) => {
                         <div>
                             <div>
                                 <Link
-                                    to={`/foods/${_id}`}
+                                    to={`/viewDetails/${_id}`}
                                 >
                                     <button className="btn btn-outline w-full hover:bg-white hover:text-black">View Details</button>
                                 </Link>

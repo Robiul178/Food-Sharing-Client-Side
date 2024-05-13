@@ -4,28 +4,24 @@ import { useEffect, useState } from 'react';
 import Card from './Card/Card';
 
 const AvailableFoods = () => {
-    const { loading, user } = useAuth();
+    const { loading } = useAuth();
     const [availableFood, setAvailableFood] = useState();
 
 
 
-    const url = 'http://localhost:1000/foods?status=available';
-
     useEffect(() => {
-        fetch(url)
+        fetch('http://localhost:1000/foods?status=available')
             .then(res => res.json())
             .then(data => {
                 setAvailableFood(data)
-                console.log("from euser email", data)
+                console.log("from  status", data)
             })
-    }, [url])
+    }, [])
 
     const sortByExpireDate = () => {
         const sortedFoods = [...availableFood].sort((a, b) => {
             return new Date(a.expired_datetime) - new Date(b.expired_datetime);
-            // console.log(a.expired_datetime, b.expired_datetime)
         });
-        // console.log("sorted food", sortedFoods)
         setAvailableFood(sortedFoods);
     };
 

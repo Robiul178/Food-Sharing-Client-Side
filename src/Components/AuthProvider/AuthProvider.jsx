@@ -1,6 +1,11 @@
-// import React from 'react';
-
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import {
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut
+} from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from '../firebase/firebase.config'
 import axios from "axios";
@@ -31,12 +36,12 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         axios.get('http://localhost:1000/foods')
             .then(data => {
-                console.log("from data", data.data)
                 setFood(data.data)
+                console.log('Authdata', data.data)
             })
 
-    }, [])
 
+    }, [])
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {

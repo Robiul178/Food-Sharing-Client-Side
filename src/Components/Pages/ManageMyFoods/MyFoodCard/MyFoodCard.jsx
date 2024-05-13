@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const MyFoodCard = ({ myfood }) => {
     const { _id, food_image, food_name, expired_datetime, additional_notes, status, pickup_location, food_quantity } = myfood;
 
-    const handleDelete = () => {
-        fetch(`http://localhost:1000/foods/${_id}`, {
+    const handleDelete = (id) => {
+        fetch(`http://localhost:1000/foods/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

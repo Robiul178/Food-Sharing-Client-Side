@@ -10,6 +10,7 @@ const ViewDetails = () => {
 
     var currentDate = new Date();
 
+    console.log(data)
     // handle submit
     const handleSubmit = (e) => {
         if (user?.email === donator.email) {
