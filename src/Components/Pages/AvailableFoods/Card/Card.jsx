@@ -33,14 +33,14 @@ const Card = ({ food }) => {
                         <h2>Expire Date : {expired_datetime}</h2>
                         <p className="mb-3">{additional_notes}</p>
 
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <Link
-                                    to={`/foods/${_id}`}
-                                >
-                                    <button className="btn btn-outline w-full hover:bg-white hover:text-black">View Details</button>
-                                </Link>
-                            </div>
+                            <Link
+                                to={`/foods/${_id}`}
+                            >
+                                <button className="btn btn-outline w-full hover:bg-white hover:text-black">View Details</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

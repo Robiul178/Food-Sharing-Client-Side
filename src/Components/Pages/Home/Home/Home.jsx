@@ -3,7 +3,6 @@ import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Collectons from "../Collectons/Collectons";
 import { Helmet } from "react-helmet-async";
-import Sample from "./Sample";
 
 const Home = () => {
     return (
@@ -15,9 +14,6 @@ const Home = () => {
             <About />
             <div className="bg-yellow-50 ">
                 <Collectons />
-            </div>
-            <div>
-                <Sample />
             </div>
         </div>
     );

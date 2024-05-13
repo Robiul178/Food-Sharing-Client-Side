@@ -38,6 +38,12 @@ const AvailableFoods = () => {
         setAvailableFood(filteredFoodList)
     };
 
+    //layout change 
+    const [isTwoColumnLayout, setIsTwoColumnLayout] = useState(false);
+
+    const toggleLayout = () => {
+        setIsTwoColumnLayout(prevState => !prevState);
+    };
 
 
 
@@ -52,7 +58,7 @@ const AvailableFoods = () => {
                 <title>Available Food | Meal For Heal</title>
             </Helmet>
 
-            <div className="flex gap-4">
+            <div className="flex justify-between gap-4 mb-6">
                 <div className='py-4'>
                     <button className='btn btn-accent' onClick={sortByExpireDate}>Sort by Expire Date</button>
                 </div>
@@ -65,15 +71,21 @@ const AvailableFoods = () => {
                         className='p-3 border border-black rounded-lg'
                     />
                 </div>
+                <div className='py-4'>
+                    <button onClick={toggleLayout} className='btn btn-outline'>Change Page Layout</button>
+                </div>
             </div>
             <div>
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
+                <div className={isTwoColumnLayout ? 'grid grid-cols-2 gap-6' : 'grid grid-cols-3 gap-4'}>
                     {
                         availableFood?.map(food => <Card
                             key={food._id}
                             food={food}
                         ></Card>)
                     }
+                </div>
+                <div>
+                    <button onClick={toggleLayout} className='bg-yellow-300'>Change Layout</button>
                 </div>
             </div>
         </div>
