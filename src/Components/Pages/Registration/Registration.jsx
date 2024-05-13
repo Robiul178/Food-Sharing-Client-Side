@@ -1,36 +1,44 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 import swal from 'sweetalert';
+import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
 
-    const { registerUser } = useAuth()
-
+    const { registerUser, setLoading } = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleFormData = (e) => {
         e.preventDefault();
-
         const form = new FormData(e.target);
         const name = form.get("name")
         const email = form.get("email")
         const password = form.get("password")
+        const photoURL = form.get("photo")
 
-        // const userInfo = {
-        //     name: name,
-        //     email: email,
-        //     password: password
-        // }
-        // console.log(userInfo)
+        if (password.length < 6) {
+            swal('Password must have 6 character');
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            swal('Password must have 1 Upparcase character');
+            return;
+        } else if (!/[a-z]/.test(password)) {
+            swal('Password must have 1 lowercase character');
+            return;
+        }
 
         registerUser(email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                if (user) {
-                    swal("Good job!", "Your account create successfully!", "success", {
-                        button: "Let's see some product!",
-                    });
-                }
+            .then(result => {
+                const user = result.user;
+                updateProfile(user, { displayName: name, photoURL: photoURL }).then(() => {
+                    setLoading(true);
+                });
+                navigate(location?.state ? location.state : '/');
+                swal("Good job!", "Your account create successfully!", "success", {
+                    button: "Let's see some product!",
+                });
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -63,6 +71,12 @@ const Registration = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo Url</span>
+                                </label>
+                                <input type="url" name="photo" placeholder="photo url" className="input input-bordered" required />
                             </div>
 
                             <div className="form-control">

@@ -3,6 +3,7 @@ import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Collectons from "../Collectons/Collectons";
 import { Helmet } from "react-helmet-async";
+import Sample from "./Sample";
 
 const Home = () => {
     return (
@@ -16,7 +17,7 @@ const Home = () => {
                 <Collectons />
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/19996701/pexels-photo-19996701/free-photo-of-abundance-of-eggs-in-basket.jpeg" alt="" />
+                <Sample />
             </div>
         </div>
     );

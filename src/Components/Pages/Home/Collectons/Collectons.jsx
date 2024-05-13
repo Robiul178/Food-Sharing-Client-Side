@@ -10,6 +10,9 @@ const Collectons = () => {
     const { food, loading } = useAuth()
     const sortProducts = food?.slice(0, 6)
 
+
+
+
     if (loading) return <span className="loading loading-bars loading-lg mt-24 ms-44"></span>
 
 

@@ -82,51 +82,51 @@ const AddFood = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 text-black">
                                 <div className="col-span-full sm:col-span-3">
                                     <label htmlFor="Foodname" className="text-sm">FoodName</label>
-                                    <input id="Foodname" type="text" name="Foodname" placeholder="Food name" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="Foodname" type="text" name="Foodname" placeholder="Food name" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
 
                                 <div className="col-span-full sm:col-span-3">
                                     <label htmlFor="FoodQuantity" className="text-sm">Food Quantity</label>
-                                    <input id="FoodQuantity" type="number" name="FoodQuantity" placeholder="Food Quantity" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="FoodQuantity" type="number" name="FoodQuantity" placeholder="Food Quantity" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
                                 <div className="col-span-full sm:col-span-3">
                                     <label htmlFor="location" className="text-sm">Pickup Location</label>
-                                    <input id="location" type="text" name="PickupLocation" placeholder="Pickup Location" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="location" type="text" name="PickupLocation" placeholder="Pickup Location" className="w-full p-3 rounded-md focus:ring " />
                                 </div>
 
                                 <div className="col-span-full sm:col-span-3">
                                     <label htmlFor="Edate" className="text-sm"> Expired Date/Time</label>
-                                    <input id="Edate" type="date" name="expireDate" placeholder=" Expired Date/Time" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="Edate" type="date" name="expireDate" placeholder=" Expired Date/Time" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
                                 <div className="col-span-full">
                                     <label htmlFor="FoodImage" className="text-sm">Food Image</label>
-                                    <input id="FoodImage" type="url" name="foodImage" placeholder="FoodImage url" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="FoodImage" type="url" name="foodImage" placeholder="FoodImage url" className="w-full p-3 rounded-md  " />
                                 </div>
                                 <div className="col-span-full">
                                     <label htmlFor="note" className="text-sm">Additional Notes</label>
-                                    <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3  rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
 
                                 <div className="col-span-full">
                                     <label htmlFor="status" className="text-sm">Status</label>
-                                    <input id="status" type="text" name="status" placeholder="available" defaultValue="available" disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="status" type="text" name="status" placeholder="available" defaultValue="available" disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
 
                                 {/* user INformation */}
                                 <div className="col-span-full sm:col-span-2">
                                     <label htmlFor="Dname" className="text-sm">User Name</label>
-                                    <input id="Dname" type="text" name="userName" placeholder={displayName} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="Dname" type="text" name="userName" placeholder={displayName} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
                                 <div className="col-span-full sm:col-span-2">
                                     <label htmlFor="state" className="text-sm">Your Email</label>
-                                    <input id="state" type="email" placeholder={email} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="state" type="email" placeholder={email} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
                                 <div className="col-span-full sm:col-span-2">
                                     <label htmlFor="zip" className="text-sm">User Profile Image</label>
-                                    <input id="zip" type="text" placeholder={photoURL} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                    <input id="zip" type="text" placeholder={photoURL} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                                 </div>
                                 <button className='btn btn-outline w-full'>
                                     <input type="submit" />
