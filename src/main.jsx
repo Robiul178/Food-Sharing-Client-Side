@@ -18,7 +18,7 @@ import PrivateRoute from './Components/Private/PrivateRoute.jsx';
 import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
 import Update from './Components/Pages/ManageMyFoods/MyFoodCard/Update/Update.jsx';
 import Error from './Components/Error/Error.jsx';
-// import App from './App.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 
@@ -81,10 +81,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className=' overflow-x-hidden'>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-
+      <HelmetProvider>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </HelmetProvider>
     </div>
   </React.StrictMode>,
 )

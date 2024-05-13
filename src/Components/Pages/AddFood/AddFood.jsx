@@ -1,14 +1,14 @@
 import PageBanner from '../Shared/PageBanner/PageBanner';
 import useAuth from '../../../Hook/useAuth'
-// import axios from 'axios';
 import swal from 'sweetalert';
-// import { useNavigate } from 'react-router-dom';
-// import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Helmet } from "react-helmet-async";
+
 
 const AddFood = () => {
     const { user } = useAuth()
     const { displayName, email, photoURL } = user;
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
     const handleAddFood = (e) => {
@@ -49,19 +49,9 @@ const AddFood = () => {
             .then(data => {
                 if (data.insertedId) {
                     swal('Food Added Successfully')
+                    navigate('/addFood')
                 }
             })
-
-        // try {
-        //     const { foods } = axios.post('http://localhost:1000/foods', addFoodInfo)
-        //     console.log(foods)
-        //     swal('add successfuly')
-        //     navigate('/manageMyfood')
-        // } catch (e) {
-        //     console.log(e)
-        // }
-
-
     }
 
 
@@ -69,6 +59,9 @@ const AddFood = () => {
     return (
         <div>
             <PageBanner></PageBanner>
+            <Helmet>
+                <title>Add Food | Meal For Heal</title>
+            </Helmet>
             <div>
                 <section className="p-6  dark:text-white">
                     <form

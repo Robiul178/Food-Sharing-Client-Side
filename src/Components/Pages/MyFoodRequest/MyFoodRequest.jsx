@@ -1,4 +1,4 @@
-
+import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import PageBanner from '../Shared/PageBanner/PageBanner'
 import axios from 'axios';
@@ -18,6 +18,9 @@ const MyFoodRequest = () => {
     return (
         <div >
             <PageBanner></PageBanner>
+            <Helmet>
+                <title>Requested Food | Meal For Heal</title>
+            </Helmet>
             <h2>My requested food:{requeatFoods.length}</h2>
             <div className='max-w-6xl mx-auto grid grid-cols-2 gap-4'>
                 {

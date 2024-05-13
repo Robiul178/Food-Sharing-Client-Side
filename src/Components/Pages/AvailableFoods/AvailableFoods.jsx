@@ -2,6 +2,7 @@ import PageBanner from '../Shared/PageBanner/PageBanner';
 import useAuth from "../../../Hook/useAuth";
 import { useEffect, useState } from 'react';
 import Card from './Card/Card';
+import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
     const { loading } = useAuth();
@@ -31,6 +32,9 @@ const AvailableFoods = () => {
         <div className="max-w-6xl mx-auto ">
             <PageBanner>
             </PageBanner>
+            <Helmet>
+                <title>Available Food | Meal For Heal</title>
+            </Helmet>
 
             <div className='py-4'>
                 <button className='btn btn-outline' onClick={sortByExpireDate}>Sort by Expire Date</button>

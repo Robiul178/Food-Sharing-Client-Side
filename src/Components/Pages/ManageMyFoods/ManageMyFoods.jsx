@@ -1,9 +1,9 @@
 
-// import axios from "axios";
 import PageBanner from "../Shared/PageBanner/PageBanner";
 import useAuth from '../../../Hook/useAuth'
 import { useEffect, useState } from "react";
 import MyFoodCard from "./MyFoodCard/MyFoodCard";
+import { Helmet } from "react-helmet-async";
 
 const ManageMyFoods = () => {
     const { user, loading } = useAuth();
@@ -31,6 +31,9 @@ const ManageMyFoods = () => {
     return (
         <div>
             <PageBanner />
+            <Helmet>
+                <title>Manage Food List | Meal For Heal</title>
+            </Helmet>
             <div className="max-w-6xl mx-auto grid gap-4">
                 {
                     myFood?.map(myfood => <MyFoodCard
