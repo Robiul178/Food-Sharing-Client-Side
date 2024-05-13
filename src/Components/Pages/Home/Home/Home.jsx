@@ -13,6 +13,9 @@ const Home = () => {
             <div className="bg-black ">
                 <Collectons />
             </div>
+            <div>
+                <img src="https://images.pexels.com/photos/19996701/pexels-photo-19996701/free-photo-of-abundance-of-eggs-in-basket.jpeg" alt="" />
+            </div>
         </div>
     );
 };
