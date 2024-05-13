@@ -1,17 +1,40 @@
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import useAuth from "../../../../Hook/useAuth";
 
 
 const MyFoodCard = ({ myfood }) => {
+    const { loading, setLoading } = useAuth();
     const { _id, food_image, food_name, expired_datetime, additional_notes, status, pickup_location, food_quantity } = myfood;
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:1000/foods/${id}`, {
-            method: "DELETE",
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:1000/foods/${id}`, {
+                        method: "DELETE",
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount > 0) {
+                                swal("Poof! Your imaginary file has been deleted!", {
+                                    icon: "success",
+                                });
+                            }
+                        })
+                } else {
+                    swal("Your  file is safe!");
+                }
+            });
+
+        if (loading) return setLoading(true);
 
     }
 

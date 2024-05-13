@@ -11,7 +11,7 @@ const ManageMyFoods = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:1000/foods/${user?.email}`)
+        fetch(`http://localhost:1000/food/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyFood(data)

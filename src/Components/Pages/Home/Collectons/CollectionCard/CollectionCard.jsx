@@ -23,7 +23,7 @@ const CollectionCard = ({ product }) => {
                     </span>
                     <span className="relative left-[280px]">
                         <Link
-                            to={`/viewDetails/${_id}`}
+                            to={`/foods/${_id}`}
                         >
                             <button className="border p-4 hover:bg-white hover:text-black"><GrLinkNext /></button>
                         </Link>

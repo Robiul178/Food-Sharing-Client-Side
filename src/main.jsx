@@ -52,14 +52,15 @@ const router = createBrowserRouter([
         path: '/manageMyfood',
         element: <PrivateRoute>
           <ManageMyFoods />
-        </PrivateRoute>
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:1000/foods?status=available')
       },
       {
         path: "/myFoodRequest",
         element: <MyFoodRequest />
       },
       {
-        path: '/viewDetails/:id',
+        path: '/foods/:id',
         element: <PrivateRoute>
           <ViewDetails />
         </PrivateRoute>,

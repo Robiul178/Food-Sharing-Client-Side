@@ -1,20 +1,21 @@
 import useAuth from "../../../Hook/useAuth";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import PageBanner from "../Shared/PageBanner/PageBanner";
 import Modal from "../Modal/Modal";
+import swal from 'sweetalert'
 
 const ViewDetails = () => {
     const data = useLoaderData()
     const { user } = useAuth()
-    const { food_name, donator, food_quantity, food_image, pickup_location, expired_datetime } = data;
+    const { _id, food_name, donator, food_quantity, food_image, pickup_location, expired_datetime } = data;
+    const navigate = useNavigate()
 
     var currentDate = new Date();
 
-    console.log(data)
     // handle submit
     const handleSubmit = (e) => {
         if (user?.email === donator.email) {
-            return alert.warning('<h2>Acces is immpossible its your data</h2>')
+            return swal('Acces is immpossible its your data')
         }
         e.preventDefault()
         const form = new FormData(e.currentTarget);
@@ -48,24 +49,21 @@ const ViewDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    // fetch(`http://localhost:1000/foods/${_id}`, {
-                    //     method: "DELETE",
-                    // })
-                    //     .then(res => res.json())
-                    //     .then(data => {
-                    //         if (data.deletedCount > 0) {
-                    //             const remaining = requestFood.filter(f => f._id !== id);
-                    //             setrequestFood(remaining);
-                    //             swal({
-                    //                 title: "Food add successfully",
-                    //                 text: "You can see this in your My request foods page!",
-                    //                 icon: "success",
-                    //                 button: "X"
-                    //             })
-                    //         }
-                    //     })
-
-                    alert('add sussssssssssssssssssss')
+                    fetch(`http://localhost:1000/foods/${_id}`, {
+                        method: "DELETE",
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount > 0) {
+                                swal({
+                                    title: "Food add successfully",
+                                    text: "You can see this in your My request foods page!",
+                                    icon: "success",
+                                    button: "X"
+                                })
+                                navigate('/myFoodRequest')
+                            }
+                        })
                 }
             })
 
