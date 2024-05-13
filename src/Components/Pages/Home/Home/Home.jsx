@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <Banner />
             <About />
-            <div className="bg-black ">
+            <div className="bg-yellow-50 ">
                 <Collectons />
             </div>
             <div>

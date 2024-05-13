@@ -25,7 +25,6 @@ const AvailableFoods = () => {
         setAvailableFood(sortedFoods);
     };
 
-
     if (loading) return <span className="loading loading-bars loading-lg mt-24 ms-44"></span>
 
     return (

@@ -5,7 +5,7 @@ import Footer from "../Components/Pages/Shared/Footer/Footer";
 
 const Routes = () => {
     return (
-        <div>
+        <div className="max-w-7xl mx-auto">
             <Navbar />
             <Outlet />
             <Footer />

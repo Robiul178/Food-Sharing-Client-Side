@@ -29,7 +29,7 @@ const Banner = () => {
                         height: '750px'
                     }}
                 >
-                    <div className=" min-h-[600px] relative top-72 left-44">
+                    <div className="  relative top-72 left-44">
                         <h2 className='text-4xl font-bold italic'>Explore Our Menu</h2> <br />
                         <button className='btn btn-outline'>MENU</button>
                     </div>
@@ -41,9 +41,9 @@ const Banner = () => {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         height: '750px'
-                    }}
+                    }} className='rounded-lg'
                 >
-                    <div className=" min-h-[600px] relative top-72 left-44">
+                    <div className="  relative top-72 left-44">
                         <h2 className='text-4xl font-bold italic'>Explore Our Menu</h2> <br />
                         <button className='btn btn-outline'>MENU</button>
                     </div>
@@ -56,7 +56,7 @@ const Banner = () => {
                         height: '750px'
                     }}
                 >
-                    <div className=" min-h-[600px] relative top-72 left-44">
+                    <div className=" relative top-72 left-44">
                         <h2 className='text-4xl font-bold italic'>Explore Our Menu</h2> <br />
                         <button className='btn btn-outline'>MENU</button>
                     </div>
@@ -69,7 +69,7 @@ const Banner = () => {
                         height: '750px'
                     }}
                 >
-                    <div className=" min-h-[600px] relative top-72 left-44">
+                    <div className="  relative top-72 left-44">
                         <h2 className='text-4xl font-bold italic'>Explore Our Menu</h2> <br />
                         <button className='btn btn-outline'>MENU</button>
                     </div>
