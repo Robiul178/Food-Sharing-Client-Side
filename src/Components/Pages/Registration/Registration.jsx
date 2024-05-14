@@ -18,16 +18,16 @@ const Registration = () => {
         const password = form.get("password")
         const photoURL = form.get("photo")
 
-        if (password.length < 6) {
-            swal('Password must have 6 character');
-            return;
-        } else if (!/[A-Z]/.test(password)) {
-            swal('Password must have 1 Upparcase character');
-            return;
-        } else if (!/[a-z]/.test(password)) {
-            swal('Password must have 1 lowercase character');
-            return;
-        }
+        // if (password.length < 6) {
+        //     swal('Password must have 6 character');
+        //     return;
+        // } else if (!/[A-Z]/.test(password)) {
+        //     swal('Password must have 1 Upparcase character');
+        //     return;
+        // } else if (!/[a-z]/.test(password)) {
+        //     swal('Password must have 1 lowercase character');
+        //     return;
+        // }
 
         registerUser(email, password)
             .then(result => {

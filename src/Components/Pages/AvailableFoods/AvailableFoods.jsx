@@ -5,7 +5,7 @@ import Card from './Card/Card';
 import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
-    const { loading, setLoading } = useAuth();
+    const { loading } = useAuth();
     const [availableFood, setAvailableFood] = useState();
 
     // const [foodList, setFoodList] = useState(initialFoodList);
@@ -13,7 +13,7 @@ const AvailableFoods = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:1000/foods?status=available')
+        fetch('http://localhost:1000/foods?status=available', { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setAvailableFood(data)

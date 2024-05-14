@@ -1,13 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../../Hook/useAuth";
+import swal from 'sweetalert'
 
 const Navbar = () => {
 
-    const { user, logOut } = useAuth();
+    const { user, loginOut } = useAuth();
+    const navigate = useNavigate()
 
     const handleLogOut = () => {
-        logOut()
-            .then(() => { }).catch(() => { });
+        loginOut()
+            .then(() => {
+                swal('Sign-out successful')
+                navigate('/')
+            }).catch((error) => {
+                swal(error)
+            })
     }
 
     const links = <>
@@ -51,9 +58,7 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button onClick={handleLogOut} className="btn btn-outline mr-4">
-                                    <Link to="/registrstion">Log Out</Link>
-                                </button>
+                                <button onClick={handleLogOut} className="btn btn-outline mr-4">Log Out </button>
                             </>
                             :
                             <>

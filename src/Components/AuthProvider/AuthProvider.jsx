@@ -4,13 +4,14 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
-    signOut
+    signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from '../firebase/firebase.config'
 import axios from "axios";
 
 export const AuthContext = createContext();
+
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true)
@@ -24,20 +25,21 @@ const AuthProvider = ({ children }) => {
     };
     const loginUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
-    }
+    };
     const googleSignUp = () => {
         return signInWithPopup(auth, provider);
-    }
-    const logOut = () => {
+    };
+
+    const loginOut = () => {
         return signOut(auth)
     }
 
 
     useEffect(() => {
-        axios.get('http://localhost:1000/foods')
+        axios.get('http://localhost:1000/foods', { withCredentials: true })
             .then(data => {
                 setFood(data.data)
-                console.log('Authdata', data.data)
+                // console.log('Authdata', data.data)
             })
 
 
@@ -46,13 +48,34 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('currentUser', currentUser)
+
+            const userEmail = currentUser?.email || user?.email;
+
+
             setUser(currentUser)
             setLoading(false)
+
+            if (currentUser) {
+                const logUser = { email: userEmail }
+                axios.post("http://localhost:1000/jwt", logUser, { withCredentials: true })
+                    .then(res => {
+                        console.log("token response", res.data)
+                    })
+            } else {
+                const logUser = { email: userEmail }
+                axios.post("http://localhost:1000/log-out", logUser, {
+                    withCredentials: true
+                }).then(res => {
+                    console.log("token log out", res.data)
+                })
+            }
+
+
         });
         return () => {
             unSubscribe()
         }
-    }, [])
+    }, [user?.email])
 
 
     const authInfo = {
@@ -60,7 +83,7 @@ const AuthProvider = ({ children }) => {
         food,
         registerUser,
         loginUser,
-        logOut,
+        loginOut,
         googleSignUp,
         loading,
         setLoading
