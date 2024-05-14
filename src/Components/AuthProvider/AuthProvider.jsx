@@ -34,12 +34,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-
     useEffect(() => {
-        axios.get('http://localhost:1000/foods', { withCredentials: true })
+        axios.get('https://server-wine-ten.vercel.app/foods')
             .then(data => {
                 setFood(data.data)
-                // console.log('Authdata', data.data)
+                console.log('Authdata', data.data)
             })
 
 
@@ -57,13 +56,13 @@ const AuthProvider = ({ children }) => {
 
             if (currentUser) {
                 const logUser = { email: userEmail }
-                axios.post("http://localhost:1000/jwt", logUser, { withCredentials: true })
+                axios.post("https://server-wine-ten.vercel.app/jwt", logUser, { withCredentials: true })
                     .then(res => {
                         console.log("token response", res.data)
                     })
             } else {
                 const logUser = { email: userEmail }
-                axios.post("http://localhost:1000/log-out", logUser, {
+                axios.post("https://server-wine-ten.vercel.app/log-out", logUser, {
                     withCredentials: true
                 }).then(res => {
                     console.log("token log out", res.data)

@@ -13,7 +13,7 @@ const AvailableFoods = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:1000/foods?status=available', { credentials: 'include' })
+        fetch('https://server-wine-ten.vercel.app/foods?status=available', { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setAvailableFood(data)
@@ -76,16 +76,13 @@ const AvailableFoods = () => {
                 </div>
             </div>
             <div>
-                <div className={isTwoColumnLayout ? 'grid grid-cols-2 gap-6' : 'grid grid-cols-3 gap-4'}>
+                <div className={isTwoColumnLayout ? 'grid grid-cols-2 gap-6' : 'grid md:grid-cols-3 sm:grid-cols-1 gap-4'}>
                     {
                         availableFood?.map(food => <Card
                             key={food._id}
                             food={food}
                         ></Card>)
                     }
-                </div>
-                <div>
-                    <button onClick={toggleLayout} className='bg-yellow-300'>Change Layout</button>
                 </div>
             </div>
         </div>

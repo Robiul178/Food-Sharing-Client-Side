@@ -38,7 +38,7 @@ const AddFood = () => {
             status: "available"
         }
 
-        fetch('http://localhost:1000/foods', {
+        fetch('https://server-wine-ten.vercel.app/foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -66,10 +66,10 @@ const AddFood = () => {
                 <section className="p-6  dark:text-white">
                     <form
                         onSubmit={handleAddFood}
-                        className="container flex flex-col mx-auto space-y-12">
-                        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-black">
-                            <div className="space-y-2 col-span-full lg:col-span-1">
-                                <p className="text-2xl  font-bold border-b-2 border-gray-500">ADD FOOD HERE</p>
+                        className=" flex flex-col mx-auto space-y-12 bg-yellow-100 rounded">
+                        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm ">
+                            <div className="sm:w-full space-y-2 col-span-full lg:col-span-1">
+                                <p className="text-2xl  font-bold border-b-2 text-black">ADD FOOD HERE</p>
                                 <div className=''>
                                     <div className="flex flex-col mt-14 justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-800">
                                         <img src={photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />

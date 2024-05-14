@@ -11,14 +11,15 @@ const ManageMyFoods = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:1000/food/${user?.email}`, { credentials: 'include' })
+        fetch(`https://server-wine-ten.vercel.app/food/${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setMyFood(data)
+                console.log(data)
             })
 
         // const getFood = async () => {
-        //     const { food } = await axios(`http://localhost:1000/foods/${user?.email}`)
+        //     const { food } = await axios(`https://server-wine-ten.vercel.app/foods/${user?.email}`)
         //     setMyFood(food)
         // }
         // getFood()

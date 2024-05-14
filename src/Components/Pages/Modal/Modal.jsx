@@ -46,7 +46,7 @@ const Modal = ({ data, handleSubmit }) => {
 
                                             <div className="col-span-full">
                                                 <label htmlFor="note" className="text-sm">Additional Notes</label>
-                                                <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3 checkbox-success  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                                <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3 checkbox-success  rounded-md focus:ring focus:ring-opacity-75 " />
                                             </div>
 
                                             <div className="col-span-full">

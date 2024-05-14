@@ -39,7 +39,7 @@ const ViewDetails = () => {
         }
         console.log(reqFoodInfo)
 
-        fetch('http://localhost:1000/request-food', {
+        fetch('https://server-wine-ten.vercel.app/request-food', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,7 @@ const ViewDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    fetch(`http://localhost:1000/foods/${_id}`, {
+                    fetch(`https://server-wine-ten.vercel.app/foods/${_id}`, {
                         method: "DELETE",
                     })
                         .then(res => res.json())

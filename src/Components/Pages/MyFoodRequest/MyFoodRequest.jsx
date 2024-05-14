@@ -10,7 +10,7 @@ const MyFoodRequest = () => {
     const { user } = useAuth()
     const [requeatFoods, setRequestFoods] = useState([]);
 
-    axios.get(`http://localhost:1000/request-food/${user?.email}`, { withCredentials: true })
+    axios.get(`https://server-wine-ten.vercel.app/request-food/${user?.email}`, { withCredentials: true })
         .then(res => {
             setRequestFoods(res.data)
         })

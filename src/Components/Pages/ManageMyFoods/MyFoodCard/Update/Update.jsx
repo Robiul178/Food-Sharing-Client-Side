@@ -40,23 +40,9 @@ const Update = () => {
             },
             status: status
         }
-        // console.log(updateFoodInfo, "update food info")
-
-        // fetch(`http://localhost:1000/foods/${_id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(updateFoodInfo)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log('update hoyceee', data)
-
-        //     })
 
         try {
-            const { data } = axios.put(`http://localhost:1000/foods/${_id}`, updateFoodInfo)
+            const { data } = axios.put(`https://server-wine-ten.vercel.app/foods/${_id}`, updateFoodInfo)
             console.log('update hoyceee', data)
             swal('update successfuly')
             navigate('/manageMyfood')
@@ -73,51 +59,51 @@ const Update = () => {
             <div>
                 <form
                     onSubmit={handleUpdateButton}
-                    className="container flex flex-col mx-auto space-y-12">
+                    className=" flex flex-col mx-auto space-y-12">
                     <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-black">
 
-                        <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 text-gray-500">
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="Foodname" className="text-sm">FoodName</label>
-                                <input id="Foodname" type="text" name="Foodname" placeholder={food_name} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="Foodname" type="text" name="Foodname" placeholder={food_name} className="w-full p-3 rounded-md " />
                             </div>
 
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="FoodQuantity" className="text-sm">Food Quantity</label>
-                                <input id="FoodQuantity" type="number" name="FoodQuantity" placeholder="" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="FoodQuantity" type="number" name="FoodQuantity" placeholder="" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                             </div>
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="location" className="text-sm">Pickup Location</label>
-                                <input id="location" type="text" name="PickupLocation" placeholder={pickup_location} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="location" type="text" name="PickupLocation" placeholder={pickup_location} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                             </div>
 
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="Edate" className="text-sm"> Expired Date/Time</label>
-                                <input id="Edate" type="date" name="expireDate" placeholder={expired_datetime} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="Edate" type="date" name="expireDate" placeholder={expired_datetime} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                             </div>
                             <div className="col-span-full">
                                 <label htmlFor="FoodImage" className="text-sm">Food Image</label>
-                                <input id="FoodImage" type="url" name="foodImage" placeholder={food_image} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="FoodImage" type="url" name="foodImage" placeholder={food_image} className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                             </div>
                             <div className="col-span-full">
                                 <label htmlFor="note" className="text-sm">Additional Notes</label>
-                                <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="note" type="" name="note" placeholder="Additional Notes" className="w-full p-3  rounded-md focus:ring focus:ring-opacity-75" />
                             </div>
 
                             <div className="col-span-full">
                                 <label htmlFor="status" className="text-sm">Status</label>
-                                <input id="status" type="text" name="status" placeholder="" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="status" type="text" name="status" placeholder="" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75" />
                             </div>
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="location" className="text-sm"> Food Donator Name</label>
-                                <input id="location" type="text" name="PickupLocation" placeholder={donator?.name} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="location" type="text" name="PickupLocation" placeholder={donator?.name} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75" />
                             </div>
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="Edate" className="text-sm"> Food Donator Email</label>
-                                <input id="Edate" type="email" name="expireDate" placeholder={donator?.email} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-default-600 dark:border-gray-300" />
+                                <input id="Edate" type="email" name="expireDate" placeholder={donator?.email} disabled className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 " />
                             </div>
 
-                            <button className='btn btn-outline w-full'>
+                            <button className='btn btn-outline w-full btn-error'>
                                 <input type="submit" />
                             </button>
                         </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import useAuth from "../../../../Hook/useAuth";
+import PropTypes from "prop-types";
 
 
 const MyFoodCard = ({ myfood }) => {
@@ -18,7 +19,7 @@ const MyFoodCard = ({ myfood }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:1000/foods/${id}`, {
+                    fetch(`https://server-wine-ten.vercel.app/foods/${id}`, {
                         method: "DELETE",
                     })
                         .then(res => res.json())
@@ -68,5 +69,10 @@ const MyFoodCard = ({ myfood }) => {
         </div>
     );
 };
+
+
+MyFoodCard.propTypes = {
+    myfood: PropTypes.array
+}
 
 export default MyFoodCard;

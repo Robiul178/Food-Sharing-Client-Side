@@ -8,17 +8,13 @@ const CollectionCard = ({ product }) => {
 
     return (
         <div>
-            <div className="flex gap-6 p-6 rounded-md shadow-md border border-dashed border-red-500  ">
-                <img src={food_image} className="object-cover object-center w-[200px] h-[100px]  rounded-md  dark:bg-gray-500" />
-                <div>
-                    <div className=" mb-2 text-black p-3 border-2">
-                        <span className="block text-xs font-medium tracking-widest uppercase ">Foot Quantity : {food_quantity}</span>
-                        <h2 className="text-xl  font-semibold tracking-wide ">{food_name}</h2>
-                        <h2 className="block text-xs tracking-widest text-black uppercase"> <span className="font-bold">Pickup location :</span>
-                            <span className="font-serif ">{pickup_location}</span>
-                        </h2>
-                    </div>
-                    <div className='flex gap-4 font-semibold mt-4 border-2'>
+            <div>
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img src={food_image} alt="not found" className=' md:max-w-[200px] md:max-h-[200px] sm:w-full' /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">{food_name}</h2>
+                        <p>Foot Quantity : {food_quantity}</p>
+                        <p>Pickup location : {pickup_location}</p>
                         <div className="avatar">
                             <div className="w-16 rounded">
                                 <img src={donator.photo} alt="not found" />
@@ -28,14 +24,16 @@ const CollectionCard = ({ product }) => {
                             <h2> Name :{donator.name}</h2>
                             <h2> Email :{donator.email}</h2>
                         </div>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-primary">
+                                <Link
+                                    to={`/foods/${_id}`}
+                                >
+                                    <GrLinkNext />
+                                </Link>
+                            </button>
+                        </div>
                     </div>
-                    <span className="relative left-[250px] top-2">
-                        <Link
-                            to={`/foods/${_id}`}
-                        >
-                            <button className="border p-4 hover:bg-black hover:text-white"><GrLinkNext /></button>
-                        </Link>
-                    </span>
                 </div>
             </div>
         </div>

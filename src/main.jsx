@@ -21,7 +21,6 @@ import Error from './Components/Error/Error.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,7 +54,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ManageMyFoods />
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:1000/foods?status=available')
+        loader: () => fetch('https://server-wine-ten.vercel.app/foods?status=available')
       },
       {
         path: "/myFoodRequest",
@@ -66,17 +65,20 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ViewDetails />
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:1000/foods/${params.id}`)
+        loader: ({ params }) => fetch(`https://server-wine-ten.vercel.app/foods/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <Update />,
-        loader: ({ params }) => fetch(`http://localhost:1000/foods/${params.id}`)
+        loader: ({ params }) => fetch(`https://server-wine-ten.vercel.app/foods/${params.id}`)
       },
     ]
   },
 ]);
 
+
+// Create a client
+// const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
