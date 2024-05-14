@@ -34,6 +34,7 @@ const ManageMyFoods = () => {
             <Helmet>
                 <title>Manage Food List | Meal For Heal</title>
             </Helmet>
+            <h2>Total Food {myFood.length}</h2>
             <div className="max-w-6xl mx-auto grid gap-4">
                 {
                     myFood?.map(myfood => <MyFoodCard
