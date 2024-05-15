@@ -1,8 +1,8 @@
-
+import PropTypes from 'prop-types'
 
 const Cardd = ({ food }) => {
 
-    const { donator, pickup_location, expired_datetime, requestTime, food_image } = food;
+    const { status, donator, pickup_location, expired_datetime, requestTime, food_image } = food;
 
     return (
         <div>
@@ -18,11 +18,16 @@ const Cardd = ({ food }) => {
                     <span className="dark:text-gray-600">PickUp Location : {pickup_location}</span>
                     <span className="dark:text-gray-600"> Expire Time : {expired_datetime}</span>
                     <span className="dark:text-gray-600"> Request Date : {requestTime}</span>
+                    <span className="dark:text-gray-600"> Status : {status}</span>
 
                 </div>
             </div>
         </div>
     );
 };
+
+Cardd.propTypes = {
+    food: PropTypes.array
+}
 
 export default Cardd;

@@ -33,7 +33,7 @@ const ViewDetails = () => {
                 email: donator.email,
                 photo: donator.photo
             },
-            status: "available",
+            status: "requested",
             requestTime: currentDate,
             user_email: user.email
         }
@@ -49,21 +49,14 @@ const ViewDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    fetch(`https://server-wine-ten.vercel.app/foods/${_id}`, {
-                        method: "DELETE",
+                    swal({
+                        title: "Food request successfully",
+                        text: "You can see this in your My request foods page!",
+                        icon: "success",
+                        button: "X"
                     })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.deletedCount > 0) {
-                                swal({
-                                    title: "Food add successfully",
-                                    text: "You can see this in your My request foods page!",
-                                    icon: "success",
-                                    button: "X"
-                                })
-                                navigate('/myFoodRequest')
-                            }
-                        })
+
+                    navigate('/myFoodRequest')
                 }
             })
 

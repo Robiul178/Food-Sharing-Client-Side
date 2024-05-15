@@ -4,15 +4,9 @@ const About = () => {
         <div>
             <section className=" dark:text-gray-700">
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-                    <div className="grid lg:grid-cols-2 md:grid-flow-row sm:grid gap-4 ">
-                        <div className="bg-blue-400  md:col-span-2 ">
-                            <img src="https://shtheme.org/demosd/winta/wp-content/uploads/2021/07/3.jpg" className="h-[300px] w-full bg-cover" alt="" />
-                        </div>
+                    <div className="">
                         <div className="bg-blue-400 ">
-                            <img src="https://shtheme.org/demosd/winta/wp-content/uploads/2021/07/4.jpg" alt="" />
-                        </div>
-                        <div className="bg-blue-400 ">
-                            <img src="https://shtheme.org/demosd/winta/wp-content/uploads/2021/07/about2.jpg" alt="" />
+                            <img src="https://th.bing.com/th/id/R.4ca1f30f1a9262fa6e50360c312e7004?rik=bSbyirQ3mP2ylw&pid=ImgRaw&r=0" alt="" />
                         </div>
                     </div>
                     <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">

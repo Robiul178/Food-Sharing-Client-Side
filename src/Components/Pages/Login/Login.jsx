@@ -3,6 +3,7 @@
 import swal from "sweetalert";
 import useAuth from "../../../Hook/useAuth";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { loginUser, googleSignUp } = useAuth()
@@ -83,7 +84,9 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-
+                    <Helmet>
+                        <title>Meal for Heal | Log In</title>
+                    </Helmet>
                 </div>
             </div>
         </div>

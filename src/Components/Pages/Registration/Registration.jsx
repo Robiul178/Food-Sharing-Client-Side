@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 import swal from 'sweetalert';
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
 
@@ -18,16 +19,16 @@ const Registration = () => {
         const password = form.get("password")
         const photoURL = form.get("photo")
 
-        // if (password.length < 6) {
-        //     swal('Password must have 6 character');
-        //     return;
-        // } else if (!/[A-Z]/.test(password)) {
-        //     swal('Password must have 1 Upparcase character');
-        //     return;
-        // } else if (!/[a-z]/.test(password)) {
-        //     swal('Password must have 1 lowercase character');
-        //     return;
-        // }
+        if (password.length < 6) {
+            swal('Password must have 6 character');
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            swal('Password must have 1 Upparcase character');
+            return;
+        } else if (!/[a-z]/.test(password)) {
+            swal('Password must have 1 lowercase character');
+            return;
+        }
 
         registerUser(email, password)
             .then(result => {
@@ -37,7 +38,7 @@ const Registration = () => {
                 });
                 navigate(location?.state ? location.state : '/');
                 swal("Good job!", "Your account create successfully!", "success", {
-                    button: "Let's see some product!",
+                    button: "OK",
                 });
             })
             .catch((error) => {
@@ -50,12 +51,11 @@ const Registration = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold"> <h2>Registration</h2></h1>
-                        {/* <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi <br /> exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> */}
-                    </div>
+            <Helmet>
+                <title>Meal for Heal | Registration</title>
+            </Helmet>
+            <div className="hero min-h-screen ">
+                <div className="hero-content ">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form
                             onSubmit={handleFormData}
