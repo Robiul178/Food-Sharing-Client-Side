@@ -1,8 +1,9 @@
 
 import CollectionCard from "./CollectionCard/CollectionCard";
-import Category from "../Category/Category";
 import { Link } from "react-router-dom";
 import useAuth from "../../../../Hook/useAuth"
+import Lottie from "lottie-react";
+import loadingAnimation from "/public/assets/button.json";
 
 
 const Collectons = () => {
@@ -11,16 +12,12 @@ const Collectons = () => {
     const sortProducts = food?.slice(0, 6)
 
 
-
-
-    // if (loading) return <span className="loading loading-bars loading-lg mt-24 ms-44"></span>
+    if (loading) return <Lottie animationData={loadingAnimation} />
 
 
     return (
         <div className="max-w-6xl mx-auto ">
-            <div>
-                <Category />
-            </div>
+
             <div className="py-12">
                 <div className="text-center py-6">
                     <h2 className="text-black  text-xl">Special Offer</h2>

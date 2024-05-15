@@ -3,6 +3,9 @@ import useAuth from "../../../Hook/useAuth";
 import { useEffect, useState } from 'react';
 import Card from './Card/Card';
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import loadingAnimation from "/public/assets/loading.json";
+
 
 const AvailableFoods = () => {
     const { loading } = useAuth();
@@ -48,7 +51,7 @@ const AvailableFoods = () => {
 
 
 
-    if (loading) return <span className="loading loading-bars loading-lg mt-24 ms-44"></span>
+    if (loading) return <Lottie animationData={loadingAnimation} />
 
     return (
         <div className="max-w-6xl mx-auto ">
