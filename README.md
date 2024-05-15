@@ -1,8 +1,12 @@
-# React + Vite
+# Community Food Sharing and Surplus Reduction Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Our Community Food Sharing and Surplus Reduction Platform aims to create a sustainable solution for food waste by connecting individuals and organizations with surplus food to those in need. By leveraging technology, we can facilitate the sharing of food resources within communities, reducing waste and ensuring that everyone has access to fresh, nutritious food.
 
-Currently, two official plugins are available:
+## Project Features
+- **User-Friendly Interface**: An intuitive and easy-to-navigate interface built with React that allows users to quickly post and find surplus food items.
+- **Real-Time Updates**: Integration with Firebase for real-time database updates, ensuring that users have the latest information on available food items.
+- **Efficient Backend**: A robust backend built with Node.js to handle requests, manage user authentication, and process data efficiently.
+- **Scalable Database**: Use of MongoDB to store and manage large volumes of data, providing scalability and flexibility for future growth.
+- **Secure Transactions**: Implementation of secure transaction protocols, including JWT token verification, to protect user data and ensure safe exchanges between parties.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

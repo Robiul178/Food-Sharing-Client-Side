@@ -33,7 +33,7 @@ const ManageMyFoods = () => {
         <div>
             <PageBanner />
             <Helmet>
-                <title>Manage Food List | Meal For Heal</title>
+                <title> Meal For Heal | Manage Food List </title>
             </Helmet>
             <h2>Total Food {myFood.length}</h2>
             <div className="max-w-6xl mx-auto grid gap-4">

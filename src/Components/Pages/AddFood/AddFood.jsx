@@ -60,7 +60,7 @@ const AddFood = () => {
         <div>
             <PageBanner></PageBanner>
             <Helmet>
-                <title>Add Food | Meal For Heal</title>
+                <title>Meal For Heal |Add Food </title>
             </Helmet>
             <div>
                 <section className="p-6  dark:text-white">

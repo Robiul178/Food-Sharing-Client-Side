@@ -55,7 +55,7 @@ const AvailableFoods = () => {
             <PageBanner>
             </PageBanner>
             <Helmet>
-                <title>Available Food | Meal For Heal</title>
+                <title> Meal For Heal | Available Food</title>
             </Helmet>
 
             <div className="flex justify-between gap-4 mb-6">
