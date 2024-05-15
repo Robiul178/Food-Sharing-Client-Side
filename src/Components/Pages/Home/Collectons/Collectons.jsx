@@ -9,11 +9,18 @@ import loadingAnimation from "/public/assets/button.json";
 const Collectons = () => {
 
     const { food, loading } = useAuth()
-    const sortProducts = food?.slice(0, 6)
+    // const sortProducts = food?.slice(0, 6)
+
+
+    const sortedFoods = food?.sort((a, b) => parseInt(b.food_quantity) - parseInt(a.food_quantity));
+
+    console.log('sortedFoods', sortedFoods)
+
+
+
 
 
     if (loading) return <Lottie animationData={loadingAnimation} />
-
 
     return (
         <div className="max-w-6xl mx-auto ">
@@ -25,7 +32,7 @@ const Collectons = () => {
                 </div>
                 <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6">
                     {
-                        sortProducts?.map(product => <CollectionCard
+                        sortedFoods?.map(product => <CollectionCard
                             key={product._id}
                             product={product}
                         ></CollectionCard>)
