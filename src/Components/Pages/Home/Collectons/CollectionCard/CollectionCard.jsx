@@ -15,14 +15,16 @@ const CollectionCard = ({ product }) => {
                         <h2 className="card-title">{food_name}</h2>
                         <p>Foot Quantity : {food_quantity}</p>
                         <p>Pickup location : {pickup_location}</p>
-                        <div className="avatar">
-                            <div className="w-16 rounded">
-                                <img src={donator.photo} alt="not found" />
+                        <div className="flex">
+                            <div className="avatar">
+                                <div className="w-16 rounded">
+                                    <img src={donator.photo} alt="not found" />
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <h2> Name :{donator.name}</h2>
-                            <h2> Email :{donator.email}</h2>
+                            <div>
+                                <h2> Name :{donator.name}</h2>
+                                <h2> Email :{donator.email}</h2>
+                            </div>
                         </div>
                         <div className="card-actions justify-end">
                             <button className="btn btn-primary">
