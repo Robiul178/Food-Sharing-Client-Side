@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Collectons from "../Collectons/Collectons";
 import { Helmet } from "react-helmet-async";
 import Impact from "../Impact/Impact";
+import TakeAction from "../TakeAction/TakeAction";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <div className="bg-yellow-50 rounded-lg">
                 <Collectons />
             </div>
+            <TakeAction />
             <Impact />
 
         </div>

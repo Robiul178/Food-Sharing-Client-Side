@@ -20,6 +20,7 @@ import Update from './Components/Pages/ManageMyFoods/MyFoodCard/Update/Update.js
 import Error from './Components/Error/Error.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import UserProfile from './Components/Pages/UserProfile/UserProfile.jsx';
+import PaymentMethod from './Components/PaymentMethod/PaymentMethod.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/userProfile',
         element: <UserProfile />
+      },
+      {
+        path: '/payment',
+        element: <PaymentMethod />
       },
       {
         path: '/addFood',

@@ -52,7 +52,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 <div>
                     {
-                        user ? <>
+                        user ? <div className="flex gap-3">
                             <Popover
                                 content={
                                     <Pane
@@ -64,25 +64,35 @@ const Navbar = () => {
                                         flexDirection="column"
                                     >
                                         <Text>
-                                            <> <Link to={'/userProfile'}> <Button marginY={8} marginRight={12} iconBefore={UserIcon}>
-                                                MY PROFILE
-                                            </Button></Link>
+                                            <>
+                                                <Link to={'/userProfile'}> <Button marginY={8} marginRight={12} iconBefore={UserIcon}>
+                                                    MY PROFILE
+                                                </Button></Link>
 
-                                                <Button marginY={8} marginRight={12} >
-                                                    <MdOutlinePayment className="text-xl mr-2" /> PAYMENT METHOD </Button>
+                                                <Link to='/payment'>
+                                                    <Button marginY={8} marginRight={12} >
+                                                        <MdOutlinePayment className="text-xl mr-2" /> PAYMENT METHOD </Button></Link>
                                                 <Button onClick={handleLogOut} marginY={8} marginRight={12} iconBefore={LogOutIcon}>LOG OUT </Button> </>
                                         </Text>
                                     </Pane>
                                 }
                                 position={Position.BOTTOM}
                             >
-                                <div className="avatar relative top-5">
+                                <div className="avatar relative">
                                     <div className="w-12 rounded-full">
                                         <img src={user.photoURL} />
                                     </div>
                                 </div>
                             </Popover>
-                        </>
+                            <div>
+                                <Link to="/payment">
+                                    <Button
+                                        marginY={8} marginRight={12} >
+                                        <MdOutlinePayment className="text-xl mr-2" /> DONATE
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
                             :
                             <>
                                 <Link to="/login">
