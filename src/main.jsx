@@ -19,6 +19,7 @@ import ViewDetails from './Components/Pages/ViewDetails/ViewDetails.jsx';
 import Update from './Components/Pages/ManageMyFoods/MyFoodCard/Update/Update.jsx';
 import Error from './Components/Error/Error.jsx';
 import { HelmetProvider } from 'react-helmet-async';
+import UserProfile from './Components/Pages/UserProfile/UserProfile.jsx';
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/registrstion",
         element: <Registration />
+      },
+      {
+        path: '/userProfile',
+        element: <UserProfile />
       },
       {
         path: '/addFood',

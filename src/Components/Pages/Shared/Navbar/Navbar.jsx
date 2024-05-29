@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../../Hook/useAuth";
 import swal from 'sweetalert'
+import { Pane, Popover, Text, Position, Button, UserIcon, LogOutIcon, LogInIcon } from 'evergreen-ui';
+import { MdOutlinePayment } from "react-icons/md";
+
 
 const Navbar = () => {
 
@@ -49,23 +52,45 @@ const Navbar = () => {
             <div className="navbar-end">
                 <div>
                     {
-                        user ?
-                            <>
-                                <div className="tooltip tooltip-left mr-4" data-tip={user?.email}>
-                                    <div className="avatar relative top-5">
-                                        <div className="w-12 rounded-full">
-                                            <img src={user.photoURL} />
-                                        </div>
+                        user ? <>
+                            <Popover
+                                content={
+                                    <Pane
+                                        width={240}
+                                        height={240}
+                                        display="flex"
+                                        marginLeft='15px'
+                                        justifyContent="center"
+                                        flexDirection="column"
+                                    >
+                                        <Text>
+                                            <> <Link to={'/userProfile'}> <Button marginY={8} marginRight={12} iconBefore={UserIcon}>
+                                                MY PROFILE
+                                            </Button></Link>
+
+                                                <Button marginY={8} marginRight={12} >
+                                                    <MdOutlinePayment className="text-xl mr-2" /> PAYMENT METHOD </Button>
+                                                <Button onClick={handleLogOut} marginY={8} marginRight={12} iconBefore={LogOutIcon}>LOG OUT </Button> </>
+                                        </Text>
+                                    </Pane>
+                                }
+                                position={Position.BOTTOM}
+                            >
+                                <div className="avatar relative top-5">
+                                    <div className="w-12 rounded-full">
+                                        <img src={user.photoURL} />
                                     </div>
                                 </div>
-                                <button onClick={handleLogOut} className="btn btn-outline mr-4">Log Out </button>
-                            </>
+                            </Popover>
+                        </>
                             :
                             <>
+                                <Link to="/login">
+                                    <Button
+                                        marginY={8} marginRight={12} iconBefore={LogInIcon}>LOGIN
+                                    </Button>
+                                </Link>
 
-                                <button className="btn btn-outline">
-                                    <Link to="/login">Login</Link>
-                                </button>
                             </>
                     }
                 </div>
