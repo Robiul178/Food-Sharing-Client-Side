@@ -13,3 +13,16 @@ Our Community Food Sharing and Surplus Reduction Platform aims to create a susta
 - **Scalable Database**: Use of MongoDB to store and manage large volumes of data, providing scalability and flexibility for future growth.
 - **Secure Transactions**: Implementation of secure transaction protocols, including JWT token verification, to protect user data and ensure safe exchanges between parties.
 
+
+##### To start the project along with me just download the start-up file and run available script
+
+```javascript
+// first install all necessary dependencies
+
+npm i
+
+// next run
+
+npm run dev
+
+``` 
