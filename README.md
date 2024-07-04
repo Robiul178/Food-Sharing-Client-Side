@@ -1,4 +1,4 @@
-# Community Food Sharing and Surplus Reduction Platform category 007
+# Community Food Sharing and Surplus Reduction Platform
 ## Web Site Name : Meal For Heal
 (Web Site Live Link: )['https://mealforheal.netlify.app']
 
